@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+
+/* desktop */
+@media screen and (min-width: 1024px){
+    .pcol06{ width: 16.6%; }
+    .pcol05{ width: 20%; }
+    .pcol04{ width: 25%; }
+    .pcol03{ width: 33.3%; }
+    .pcol02{ width: 50%; }
+    .pcol01{ width: 100%; }
+}
+
+/* tablet */
+@media screen and (max-width:1023px){
+    .tcol06{ width: 16.6%; }
+    .tcol05{ width: 20%; }
+    .tcol04{ width: 25%; }
+    .tcol03{ width: 33.3%; }
+    .tcol02{ width: 50%; }
+    .tcol01{ width: 100%; }
+}
+
+/* mobile */
+@media screen and (max-width:767px){
+    .mcol06{ width: 16.6%; }
+    .mcol05{ width: 20%; }
+    .mcol04{ width: 25%; }
+    .mcol03{ width: 33.3%; }
+    .mcol02{ width: 50%; }
+    .mcol01{ width: 100%; }
+
+    .mcol304{width:75%;}
+}

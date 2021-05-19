@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+@import url("layout.css");
+@import url("fonts.css");
+
+
+* { padding: 0; margin: 0; font-family: Poppins, NotoSans, '맑은 고딕', sans-serif; font-weight: 400; color: #333; }
+li { list-style: none; }
+a { text-decoration: none; }
+button { cursor: pointer; }
+table { border-collapse: collapse; }
+img { display: block; }
+body.active, html.active{ width:100%; height:100%; overflow:hidden; }
+
+/* common */
+/* loading */
+.loading{ position:fixed; top:0; left:0; z-index:60000; display:flex; justify-content:center; align-items:center; width:100%; height:100vh; background-color:rgb(22, 22, 22); transition:0.5s; }
+.loading.active{ opacity:0; }
+.loading img{animation: loading 2.4s ease-in infinite;}
+@keyframes loading {
+    0% { transform:rotate(0deg) }
+    30%{ transform:rotate(360deg) }
+    40%{ transform:scale(1.2, 1.2) }
+    100%{ transform:scale(1, 1) }
+}
+
+/* panel & popup bg */
+.body_bg{ position:fixed; top:0; left:0; z-index:3000; display:none; width:100vw; height:100vh; background-color:rgba(0,0,0,0.7); }
+.body_bg.active{ display:block; }
+
+/* header */
+header{ position:fixed; left:0; top:0; z-index:10000; width:100%; height:90px; background-color:rgba(0,0,0,0.7); transition:0.4s; }
+header .wrap{ display:flex; justify-content:space-between; }
+header *{ color:#fff; }
+header .wrap{  padding:0 20px; box-sizing:border-box; }
+
+header h1{ width:210px; height:80px; padding:25px 0; box-sizing:border-box; }
+header h1 a{ display:block; width:100%; height:50%; }
+header h1 img{ width:100%; }
+
+header.active{ background-color:#000; border-bottom:1px solid #ededed; }
+
+/* hover */
+.sub_nav a:after{ position:relative; top:-10px; display:block; width:100%; height:1px; background-color:#fff; content:'';transform-origin:left bottom; transform:scaleX(0); transition:0.4s;}
+.sub_nav a:hover{ font-weight:500; }
+.sub_nav a:hover:after{ transform:scaleX(1); }
+
+/* footer */
+footer{ width:100%; padding:60px 20px; box-sizing:border-box; margin-top:200px; background-color:#ededed; }
+
+footer h1{ width:190px; height:40px; margin-right:60px; }
+.m_logo{ display:none; }
+
+footer .f_nav{ display:flex; margin-bottom:40px;}
+footer .f_nav li{ margin-right:80px; line-height:40px;}
+footer .f_nav li a{ display:block; width:100%; height:100%; font-weight:500; color:#666; }
+footer .sns{ display:flex; }
+
+footer .sns li{ margin-right:40px; line-height:40px;}
+footer .sns li:last-child{ margin-right:0; }
+footer .sns li a{ width:100px; display:block; width:100%; height:100%; font-weight:500; color:#666; }
+footer .sns li a:after{ position:relative; left:20px; content:'|'; }
+footer .sns li:last-child a::after{ content:''; }
+
+footer .f_middle p{ line-height:1.75rem; font-size:0.875rem; color:#666; }
+footer .f_middle span{ font-size:0.875rem; color:#666; }
+
+br.iphone5{ display:none; }
+
+/* desktop */
+@media screen and (min-width:1280px){
+    *{ font-size:16px; }
+    
+    /* header */
+    .panel_icon{ display: none; }
+
+    header .gnb > ul{ display:flex; justify-content:space-between; }
+    header .gnb > ul > li{ min-width:167px; margin-right:40px; padding:0 20px; box-sizing:border-box; transition:0.3s; }
+    header .gnb > ul > li:last-child{ margin:0; }
+    .main_nav{ display:block; width:100%; height:90px; line-height:90px; font-size:1.25rem; font-weight:600; }
+    .sub_nav{ display:none; overflow: hidden; }
+
+    .gnb > ul > li.active{ background-color:rgba(204, 27, 56, 0.9); }
+    .gnb > ul > li.active .main_nav{ font-weight:700; }
+ 
+    .sub_nav li{ width:100%; height:60px; }
+    .sub_nav a{ display:block; width:100%; height:60px; line-height:60px; font-size:1.25rem; transition:0.4s; }
+   
+    /* footer */
+    footer .wrap{ display:flex; justify-content:space-between; }
+}
+
+/* large-desktop */
+@media screen and (min-width:1440px){
+    /* header */
+    .main_nav{ font-size:1.45rem; font-weight:600; }
+    header .wrap{ padding:0; }
+}
+
+/* 1280px */
+@media screen and (max-width:1279px){
+    /* header */
+    header{ background-color:rgba(0,0,0,0.5); }
+
+    .gnb{ position:fixed; top:0; right:-100%; z-index:11000; display:block; width:calc(100% - 270px); height:100%; background-color:rgba(0,0,0,0.9); transition:0.4s;  overflow-y:auto;}
+    .gnb.active{ right:0; }
+
+    .gnb > ul{ width:100%; margin-top:90px; box-sizing:border-box; border-top:1px solid #ededed; }
+    .gnb > ul > li{ line-height:80px;  transition:0.3s;}
+
+    .main_nav{ padding:0 20px; box-sizing:border-box; font-size:1.5rem; }
+
+    .sub_nav{ display:none; background-color:rgba(33,33,33,0.9); border-top:1px solid #ededed; border-bottom:1px solid #ededed; overflow:hidden; }
+    .sub_nav a{ padding:0 20px; box-sizing:border-box; font-size:1.25rem; color:#ededed; }
+
+    .sub_nav li{ position:relative; }
+    .sub_nav a:after{ position:absolute; top:calc(100% - 15px); }
+    .sub_nav a:hover{ font-weight:600; }
+    .sub_nav a:hover:after{ transform:scaleX(0.5); }
+
+    .panel_icon{ position: absolute; top: 0; right: 0; z-index: 20000; width: 90px; height: 90px; padding: 25px; box-sizing: border-box; }
+    .panel_icon a{ position: relative; display: block; width: 100%; height: 100%; transition: 0.3s; }
+    .panel_icon span{ position: absolute; left: 0; display: block; width: 100%; height:3px; background-color: #fff; transition: 0.3s; }
+    .panel_icon .line01{ top: 4px; }
+    .panel_icon .line02{ top: 19px; left: -8px; transform-origin:left center;}
+    .panel_icon .line03{ top: 34px; }
+    
+    .panel_icon a.active .line02{ transform: scaleX(0); } /* 바로 실행 */
+    .panel_icon a.active .line01{ top: 19px; transform: rotate(45deg); transition-delay: 0.3s; }
+    .panel_icon a.active .line03{ top: 19px; transform: rotate(-45deg); transition-delay: 0.3s; }
+
+    
+
+    /* footer */
+    footer .wrap{ position:relative; }
+    footer .sns{ position:absolute; top:0; right:0; }
+
+    footer .f_middle{ margin-top:40px; }
+    footer .f_nav{ margin-bottom:0; }
+    footer .f_nav li{ margin-right:40px; }
+}
+
+/* tablet */
+@media screen and (max-width:1023px){
+    *{ font-size:14px; }
+
+    /* header */
+    header{ height:70px; }
+    header h1{ width:190px; height:60px; padding:17.85px 0; box-sizing:border-box; }
+
+    .gnb{ width:calc(100% - 240px); }
+    .gnb > ul{ margin-top:70px; }
+
+    .gnb > ul > li{ line-height:70px;  transition:0.3s;}
+
+    .panel_icon{ width: 70px; height: 70px; padding:15px;  }
+    .panel_icon span{ position: absolute; left: 0; display: block; width: 100%; height:2px; background-color: #fff; transition: 0.3s; }
+    .panel_icon .line01{ top: 6px; }
+    .panel_icon .line02{ top: 19px; left: -8px; transform-origin:left center;}
+    .panel_icon .line03{ top: 32px; }
+
+    .panel_icon a.active .line02{ transform: scaleX(0); } /* 바로 실행 */
+    .panel_icon a.active .line01{ top: 19px; transform: rotate(45deg); transition-delay: 0.3s; }
+    .panel_icon a.active .line03{ top: 19px; transform: rotate(-45deg); transition-delay: 0.3s; }
+
+
+
+    /* footer */
+    footer{ padding:40px 20px; margin-top:100px; }
+
+    footer h1{ width:160px; margin-bottom:20px; }
+    footer img{ width:100%; }
+    
+    footer .f_nav{ display:none; }
+    footer .f_middle{ margin-top:15px; }
+    footer .f_middle p{ line-height:1.25rem; }
+    footer .hidden{ display:none; }
+}
+
+/* mobile */
+@media screen and (max-width:767px){
+    *{ font-size:12px; }
+
+    /* header */
+    header h1{ width:160px; height:60px; padding:19.77px 0; box-sizing:border-box; }
+
+    .gnb{ width:calc(100% - 60px); }
+    .gnb.active{ right:0; }
+    
+
+    /* footer */
+    footer{ margin-top:80px;  }
+    footer h1{ width:30px; margin-bottom:0;}
+    footer img{ width:100%; }
+    .m_logo{ display:block; }
+    .d_logo{ display:none; }
+
+    footer .sns li{ margin-right:15px; line-height:30px;}
+    footer .sns li a{ font-size:0.975rem;}
+    footer .sns li a:after{ left:7.5px; }
+
+
+}
+
+/* iphone5 */
+@media screen and (max-width:320px){
+    footer .sns li{ margin-right:10px; line-height:30px;}
+    footer .sns li a{ font-size:0.875rem;}
+    footer .sns li a:after{ left:5px; }
+
+    br.iphone5{ display:block; }
+}

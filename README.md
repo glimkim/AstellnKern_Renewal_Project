@@ -16,3 +16,4 @@
 - to create a responsive website
 - to use media query in CSS
 - to adjust all the elements in the screen size of any devices
+- to make interactive parallax effects with scrolling

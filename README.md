@@ -1,4 +1,5 @@
 # Astell & Kern Renewal Project
+(2021. 02. 28 - 2021. 03. 08)
 
 *sample image*
 ![image](https://user-images.githubusercontent.com/80735337/118783839-69a11100-b8ca-11eb-861b-dc0a30cf98b1.png)
